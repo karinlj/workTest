@@ -29,7 +29,12 @@ const SingleProduct = ({ product, addItem }) => {
                     setShowInfo(!showInfo);
                   }}
                 >
-                  <i className="fas fa-chevron-down arrow"></i>
+                  {!showInfo ? (
+                    <i className="fas fa-chevron-down arrow"></i>
+                  ) : (
+                    <i className="fas fa-chevron-up arrow"></i>
+                  )}
+
                   <span>See information</span>
                 </div>
                 <ul className={`info_list ${showInfo ? "show" : ""}`}>
@@ -40,13 +45,25 @@ const SingleProduct = ({ product, addItem }) => {
                 </ul>
               </div>
             </div>
-            <h2>{product.amount} : -</h2>
+            <div className="price">
+              <h2
+                className={`amount ${product.discount > 0 ? "discount" : ""}`}
+              >
+                {product.amount - product.discount} : -
+              </h2>
+              {product.discount > 0 ? (
+                <h3 className="original_amount">{product.amount} : -</h3>
+              ) : (
+                ""
+              )}
+            </div>
+
             <footer className="btn_section">
               {" "}
               <button
                 className="add_btn"
                 //disabled={!product.enabled}
-                disabled={product.isDisabled}
+                disabled={product.disabled}
                 onClick={() => addItem(product.id)}
               >
                 Add to list

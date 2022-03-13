@@ -4,56 +4,80 @@
       "id": 1,
       "title": "Super Product 1",
       "description": "Some text for this super product that all want to buy...",
-      "infoText": ["info one", "info two", "info three"],
-      "amount": 100,
-      "isDisabled": false
+      "infoText": [
+        "info one",
+        "info two",
+        "info three"
+      ],
+      "amount": 700,
+      "discount": 50
     },
     {
       "id": 2,
       "title": "Super Product 34",
       "description": "Some text for this super product that all want to buy...",
-      "infoText": ["info one", "info two", "info three"],
-      "amount": 800,
-      "isDisabled": false
+      "infoText": [
+        "info one",
+        "info two",
+        "info three"
+      ],
+      "amount": 900,
+      "discount": 50
     },
     {
       "id": 3,
       "title": "Super Product 39",
       "description": "Some text for this super product that all want to buy...",
-      "infoText": ["info one", "info two", "info three"],
+      "infoText": [
+        "info one",
+        "info two",
+        "info three"
+      ],
       "amount": 1050,
-      "isDisabled": false
+      "discount": 50
     },
     {
       "id": 4,
       "title": "Super Product 56",
       "description": "Some text for this super product that all want to buy...",
-      "infoText": ["info one", "info two", "info three"],
+      "infoText": [
+        "info one",
+        "info two",
+        "info three"
+      ],
       "amount": 500,
-      "isDisabled": false
+      "discount": 0
     },
     {
       "id": 5,
       "title": "Super Product 77",
       "description": "Some text for this super product that all want to buy...",
-      "infoText": ["info one", "info two", "info three"],
+      "infoText": [
+        "info one",
+        "info two",
+        "info three"
+      ],
       "amount": 1700,
-      "isDisabled": false
+      "discount": 0
     },
     {
       "id": 6,
       "title": "Super Product 99",
       "description": "Some text for this super product that all want to buy...",
-      "infoText": ["info one", "info two", "info three"],
+      "infoText": [
+        "info one",
+        "info two",
+        "info three"
+      ],
       "amount": 2000,
-      "isDisabled": false
+      "discount": 0
     }
   ],
   "wishlist": [
     {
-      "id": 6,
-      "title": "Super Product 99",
-      "amount": 2000
+      "id": 1,
+      "title": "Super Product 1",
+      "amount": 650
     }
   ]
 }

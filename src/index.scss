@@ -18,7 +18,6 @@ code {
   max-width: 1300px;
   width: 100%;
   margin: 0 auto;
-
   ul {
     list-style: none;
     padding: 0;
@@ -31,6 +30,9 @@ code {
       font-size: 2.5rem;
     }
   }
+  .loading {
+    text-align: center;
+  }
   .productlist {
     display: flex;
     flex-wrap: wrap;
@@ -42,17 +44,19 @@ code {
       padding: 0 1rem;
       margin-bottom: 1rem;
       article {
-        border: 1px solid #999;
         margin-bottom: 2rem;
         .image {
-          height: 200px;
-          background: #eee;
           img {
             max-width: 100%;
+            height: 100%;
+            object-fit: cover;
+            vertical-align: middle;
           }
         }
         .card_content {
           padding: 1.5rem 2.5rem 2.5rem 2.5rem;
+          border: 1px solid #999;
+          border-top: none;
 
           h2 {
             margin-top: 0;
@@ -62,7 +66,7 @@ code {
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            height: 400px;
+            min-height: 350px;
             .text {
               .description {
                 padding: 0 1.5rem;
@@ -77,10 +81,26 @@ code {
                 list-style: disc;
                 padding: 1rem 1.5rem;
                 opacity: 0;
-                transition: 0.3s all ease-in;
+                transition: 0.2s all ease-in;
                 &.show {
                   opacity: 1;
                 }
+              }
+            }
+            .price {
+              display: flex;
+              align-items: center;
+              justify-content: flex-start;
+              .amount {
+                margin: 0;
+                padding-right: 1rem;
+                &.discount {
+                  color: red;
+                }
+              }
+              .original_amount {
+                margin: 0;
+                text-decoration: line-through;
               }
             }
             .btn_section {
@@ -113,6 +133,11 @@ code {
     }
     .price {
       font-size: 2.5rem;
+    }
+    .delete {
+      color: #d11a2a;
+      margin-left: 0.5rem;
+      font-size: 1rem;
     }
   }
 }
