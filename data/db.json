@@ -5,44 +5,55 @@
       "title": "Super Product 1",
       "description": "Some text for this super product that all want to buy...",
       "infoText": ["info one", "info two", "info three"],
-      "price": 100
+      "amount": 100,
+      "isDisabled": false
     },
     {
       "id": 2,
       "title": "Super Product 34",
       "description": "Some text for this super product that all want to buy...",
       "infoText": ["info one", "info two", "info three"],
-      "price": 800
+      "amount": 800,
+      "isDisabled": false
     },
     {
       "id": 3,
       "title": "Super Product 39",
       "description": "Some text for this super product that all want to buy...",
       "infoText": ["info one", "info two", "info three"],
-      "price": 1050
+      "amount": 1050,
+      "isDisabled": false
     },
     {
       "id": 4,
       "title": "Super Product 56",
       "description": "Some text for this super product that all want to buy...",
       "infoText": ["info one", "info two", "info three"],
-      "price": 500
+      "amount": 500,
+      "isDisabled": false
     },
     {
       "id": 5,
       "title": "Super Product 77",
       "description": "Some text for this super product that all want to buy...",
       "infoText": ["info one", "info two", "info three"],
-      "price": 1700
+      "amount": 1700,
+      "isDisabled": false
     },
     {
       "id": 6,
       "title": "Super Product 99",
       "description": "Some text for this super product that all want to buy...",
       "infoText": ["info one", "info two", "info three"],
-      "price": 2000
+      "amount": 2000,
+      "isDisabled": false
     }
   ],
-
-  "wishlist": ["hej", "tjena"]
+  "wishlist": [
+    {
+      "id": 6,
+      "title": "Super Product 99",
+      "amount": 2000
+    }
+  ]
 }

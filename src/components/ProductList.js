@@ -1,11 +1,17 @@
 import SingleProduct from "./SingleProduct";
 
-const ProductList = ({ products }) => {
+const ProductList = ({ products, addItem }) => {
   return (
     <ul className="productlist">
       {products &&
         products.map((product) => {
-          return <SingleProduct product={product} key={product.id} />;
+          return (
+            <SingleProduct
+              product={product}
+              addItem={addItem}
+              key={product.id}
+            />
+          );
         })}
     </ul>
   );
