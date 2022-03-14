@@ -18,7 +18,7 @@ To run
 
 `npm start`
 
-To run db with json-server in different terminal
+To run db with json-server (can be run in different terminal)
 
 `json-server --watch data/db.json --port 9000`
 
@@ -26,7 +26,7 @@ To run db with json-server in different terminal
 
 `npm run build`
 
-Then use the dist folder you get.
+The dist folder generated can be used for deployment in a web server, such as Apache or nginx.
 
 ## Built With
 

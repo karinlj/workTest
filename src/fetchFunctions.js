@@ -1,11 +1,11 @@
 export const getData = async (url) => {
   try {
     const result = await fetch(url);
-    //the result object is not the data
+    //result object
     if (!result.ok) {
       throw Error("Endpoint error: Could not fetch the data");
     }
-    //get data by passing data into a js-object
+    //passing data into a js-object
     const data = await result.json();
     return data;
   } catch (err) {
