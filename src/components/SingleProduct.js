@@ -7,13 +7,7 @@ const SingleProduct = ({ product, addItem }) => {
     <li className="product_card">
       <article>
         <div className="image">
-          {/* <img
-            src={require(`../images/${product.title}.jpg`).default}
-            alt="bike"
-          />{" "} */}
-          {/* <img src={require(`../images/photo.jpg`).default} alt="bike" />{" "} */}
-
-          <img src={`/images/${product.title}.jpg`} alt="bike" />
+          <img src={`/images/${product.title}.jpg`} alt="bicycle" />
         </div>
         <div className="card_content">
           <header>

@@ -1,15 +1,15 @@
 export const getData = async (url) => {
   try {
-    const result = await fetch(url); //returns promise
-
+    const result = await fetch(url);
+    //the result object is not the data
     if (!result.ok) {
-      console.log("result:", result);
-      throw Error("Fetch data error: " + result.statusText);
+      throw Error("Endpoint error: Could not fetch the data");
     }
-    const data = await result.json(); //returns promise
+    //get data by passing data into a js-object
+    const data = await result.json();
     return data;
   } catch (err) {
-    console.log("error:", err);
+    console.log("Network error: ", err.message);
   }
 };
 
@@ -21,27 +21,26 @@ export const addData = async (url, addedItem) => {
       body: JSON.stringify(addedItem),
     });
     if (!result.ok) {
-      throw Error("Fetch data error: " + result.statusText);
+      throw Error("Endpoint error: Could not fetch the data");
     }
     const data = await result.json();
     return data;
   } catch (err) {
-    console.log("error:", err);
+    console.log("Network error: ", err.message);
   }
 };
 
 export const deleteData = async (url, id) => {
-  url = url.endsWith("/") ? url : url + "/";
   try {
     const result = await fetch(url + id, {
       method: "DELETE",
     });
     if (!result.ok) {
-      throw Error("Fetch data error: " + result.statusText);
+      throw Error("Endpoint error: Could not fetch the data");
     }
     const data = await result.json();
     return data;
   } catch (err) {
-    console.log("error:", err);
+    console.log("Network error: ", err.message);
   }
 };

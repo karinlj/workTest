@@ -30,8 +30,12 @@ code {
       font-size: 2.5rem;
     }
   }
-  .loading {
+  .loading,
+  .error {
     text-align: center;
+  }
+  .error {
+    color: #d11a2a;
   }
   .productlist {
     display: flex;
@@ -124,7 +128,6 @@ code {
       }
     }
   }
-
   .wishlist_section {
     text-align: center;
     h2 {

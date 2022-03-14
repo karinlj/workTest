@@ -1,134 +1,124 @@
 import ProductList from "./ProductList";
+import WishItemList from "./WishItemList";
 import { useState, useEffect } from "react";
 import { getData } from "../fetchFunctions";
 import { addData } from "../fetchFunctions";
 import { deleteData } from "../fetchFunctions";
 
 const Home = () => {
-  const [products, setProducts] = useState([]);
-  const [wishlist, setWishlist] = useState([]);
+  const [isMounted, setIsMounted] = useState(true);
+
+  const [products, setProducts] = useState(null);
+  const [wishlist, setWishlist] = useState(null);
   const [totalAmount, setTotalAmount] = useState(0);
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [productsLoading, setproductsLoading] = useState(true);
+  const [wishlistLoading, setWishlistLoading] = useState(true);
+  const [wishlistError, setWishlistError] = useState(null);
+  const [productsError, setProductsError] = useState(null);
+
   const productsUri = "http://localhost:9000/products/";
   const wishlistUri = "http://localhost:9000/wishlist/";
 
-  const isDisabled = (id) => {
-    let matches = wishlist.filter((item) => {
-      return item.id === id;
-    });
-    return matches.length > 0;
-  };
-
   const getWishlist = async () => {
-    const listFromDb = await getData(wishlistUri);
-    setWishlist(listFromDb);
-    setIsLoading(false);
-    if (listFromDb) {
-      setError(null);
+    //get wishlist
+    const dbWishlist = await getData(wishlistUri);
+    setWishlist(dbWishlist);
+    setWishlistLoading(false);
+    if (dbWishlist) {
+      setWishlistError(null);
     } else {
-      setError("Ooops!! Could not fetch data...");
+      setWishlistError("Endpoint error: Could not fetch data...");
     }
   };
+
+  //disable buttons
+  const isDisabled = (id) => {
+    if (wishlist) {
+      let matches = wishlist.filter((item) => {
+        return item.id === id;
+      });
+      return matches.length > 0;
+    }
+  };
+
   const drawProducts = async () => {
     let tempProducts = products;
-
-    if (!tempProducts.length) {
+    if (!tempProducts) {
+      //get products
       tempProducts = await getData(productsUri);
     }
-    //local gui state
+    //extending state for gui
     tempProducts = tempProducts.map((item) => {
       return { ...item, disabled: isDisabled(item.id) };
     });
     setProducts(tempProducts);
-    //loading & error
-    setIsLoading(false);
+    setproductsLoading(false);
     if (tempProducts) {
-      setError(null);
+      setProductsError(null);
     } else {
-      setError("Ooops!! Could not fetch data...");
+      setProductsError("Endpoint error: Could not fetch data...");
     }
   };
-  //Like componentDidMount and componentDidUpdate:
-  useEffect(() => {
-    getWishlist();
-  }, []);
 
+  //add wishlist item
   const addItem = async (id) => {
-    //find item with the id
     let addedProduct = products.find((item) => {
       return item.id === id;
     });
-
-    //creating wishlist-item with title and amount
+    //new wishlist object
     const newWishlistItem = {
       id: addedProduct.id,
       title: addedProduct.title,
       amount: addedProduct.amount - addedProduct.discount,
     };
-    //add data to wishlist
+    //add data
     await addData(wishlistUri, newWishlistItem);
-
+    //get wishlist after added item
     getWishlist();
   };
 
+  //delete wishlist item
   const handleDelete = async (id) => {
-    const deletedWishlistItem = await deleteData(wishlistUri, id);
-    console.log("handleDelete", deletedWishlistItem);
+    //detete data
+    await deleteData(wishlistUri, id);
+    //get wishlist after deleted item
     getWishlist();
-    // update ui
-    // let tempWishlist = wishlist.filter((item) => {
-    //   return item.id !== id;
-    // });
-    // setWishlist(tempWishlist);
-    //return deletedWishlistItem;
   };
-
-  // const handleDelete = (id) => {
-  //   //delete from db.json
-  //   fetch(wishlistUri + id, { method: "DELETE" })
-  //     .then(() => {
-  //       //update ui
-  //       let tempWishlist = wishlist.filter((item) => {
-  //         return item.id !== id;
-  //       });
-  //       setWishlist(tempWishlist);
-  //     })
-  //     .catch((err) => console.log(err.message));
-  // };
+  useEffect(() => {
+    //get wishlist on load
+    getWishlist();
+  }, []);
 
   useEffect(() => {
+    //add amounts
     let sum = 0;
-    wishlist.forEach((item) => {
-      sum += item.amount;
-    });
-
+    wishlist &&
+      wishlist.forEach((item) => {
+        sum += item.amount;
+      });
     setTotalAmount(sum);
-    console.log("wishlist", wishlist);
-
+    //get products depending on wishlist
     drawProducts();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [wishlist]);
-
-  useEffect(() => {
-    console.log("products", products);
-  }, [products]);
 
   return (
     <div className="home">
       <header className="header">
         <h1>Super Product List</h1>
       </header>
-      {error && <div className="error">{error}</div>}
-      {isLoading && <div className="loading">Loading...</div>}
+      {productsError && <div className="error">{productsError}</div>}
+      {productsLoading && <div className="loading">Products loading...</div>}
 
-      {products.length > 0 && (
-        <ProductList products={products} addItem={addItem} />
-      )}
+      {products && <ProductList products={products} addItem={addItem} />}
 
       <section className="wishlist_section">
         <h2>Wishlist</h2>
+        {wishlistError && <div className="error">{wishlistError}</div>}
+        {wishlistLoading && <div className="loading">Wishlist loading...</div>}
+
         <ul>
-          {wishlist.length > 0 &&
+          {wishlist &&
             wishlist.map((item, index) => {
               return (
                 <li key={index}>
@@ -152,6 +142,14 @@ const Home = () => {
           Total Price:
           {wishlist && <span> {totalAmount}</span>}
         </h2>
+
+        {/* {wishlist && (
+          <WishItemList
+            wishlist={wishlist}
+            handleDelete={handleDelete}
+            totalAmount={totalAmount}
+          />
+        )} */}
       </section>
     </div>
   );
