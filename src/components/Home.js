@@ -45,9 +45,11 @@ const Home = () => {
       tempProducts = await getData(productsUri);
     }
     //extending state for gui
-    tempProducts = tempProducts.map((item) => {
-      return { ...item, disabled: isDisabled(item.id) };
-    });
+    tempProducts =
+      tempProducts &&
+      tempProducts.map((item) => {
+        return { ...item, disabled: isDisabled(item.id) };
+      });
     setProducts(tempProducts);
     setproductsLoading(false);
     if (tempProducts) {
