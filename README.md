@@ -18,6 +18,10 @@ To run
 
 `npm start`
 
+Install json-server
+
+`npm install -g json-server`
+
 To run db with json-server (can be run in different terminal)
 
 `json-server --watch data/db.json --port 9000`
