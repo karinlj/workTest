@@ -28,7 +28,6 @@ const SingleProduct = ({ product, addItem }) => {
                   ) : (
                     <i className="fas fa-chevron-up arrow"></i>
                   )}
-
                   <span>See information</span>
                 </div>
                 <ul className={`info_list ${showInfo ? "show" : ""}`}>

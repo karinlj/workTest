@@ -2,7 +2,7 @@
 
 ## Description
 
-Work assignment making a product page in React.js
+Work assignment making a product page in React.js.
 
 ## Installation
 
@@ -14,12 +14,11 @@ To install
 
 `npm install`
 
-To run:
+To run
 
 `npm start`
 
-To run db with json-server:
-In different window
+To run db with json-server in different terminal
 
 `json-server --watch data/db.json --port 9000`
 

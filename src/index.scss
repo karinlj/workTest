@@ -1,3 +1,7 @@
+$sm-min: 576px;
+$md-min: 768px;
+$lg-min: 992px;
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -6,18 +10,20 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
-
+* {
+  box-sizing: border-box;
+}
 .home {
   padding: 1rem;
   color: #111;
   max-width: 1300px;
   width: 100%;
   margin: 0 auto;
+  margin-bottom: 5rem;
   ul {
     list-style: none;
     padding: 0;
@@ -40,13 +46,23 @@ code {
   .productlist {
     display: flex;
     flex-wrap: wrap;
+    margin-right: -1rem;
+    margin-left: -1rem;
     .product_card {
-      // flex: 0 0 33.333333%;
-      // max-width: 33.333333%;
-      flex: 0 0 30%;
-      max-width: 30%;
+      position: relative;
+      width: 100%;
+      flex: 0 0 100%;
+      max-width: 100%;
       padding: 0 1rem;
       margin-bottom: 1rem;
+      @media all and (min-width: $sm-min) {
+        flex: 0 0 50%;
+        max-width: 50%;
+      }
+      @media all and (min-width: $lg-min) {
+        flex: 0 0 33.333333%;
+        max-width: 33.333333%;
+      }
       article {
         margin-bottom: 2rem;
         .image {
@@ -61,10 +77,16 @@ code {
           padding: 1.5rem 2.5rem 2.5rem 2.5rem;
           border: 1px solid #999;
           border-top: none;
-
           h2 {
             margin-top: 0;
             font-size: 1.8rem;
+            white-space: nowrap;
+            @media all and (min-width: $sm-min) {
+              font-size: 1.5rem;
+            }
+            @media all and (min-width: $md-min) {
+              font-size: 1.8rem;
+            }
           }
           .card_content_inner {
             display: flex;
@@ -99,7 +121,7 @@ code {
                 margin: 0;
                 padding-right: 1rem;
                 &.discount {
-                  color: red;
+                  color: #e63342;
                 }
               }
               .original_amount {
@@ -114,7 +136,7 @@ code {
                 border: 1.5px solid #111;
                 background: #fff;
                 padding: 0.5rem 1rem;
-                font-size: 0.8rem;
+                font-size: 0.9rem;
                 font-weight: 600;
                 transition: 1s;
                 width: 8rem;

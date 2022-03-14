@@ -1,13 +1,10 @@
 import ProductList from "./ProductList";
-import WishItemList from "./WishItemList";
 import { useState, useEffect } from "react";
 import { getData } from "../fetchFunctions";
 import { addData } from "../fetchFunctions";
 import { deleteData } from "../fetchFunctions";
 
 const Home = () => {
-  const [isMounted, setIsMounted] = useState(true);
-
   const [products, setProducts] = useState(null);
   const [wishlist, setWishlist] = useState(null);
   const [totalAmount, setTotalAmount] = useState(0);
@@ -142,14 +139,6 @@ const Home = () => {
           Total Price:
           {wishlist && <span> {totalAmount}</span>}
         </h2>
-
-        {/* {wishlist && (
-          <WishItemList
-            wishlist={wishlist}
-            handleDelete={handleDelete}
-            totalAmount={totalAmount}
-          />
-        )} */}
       </section>
     </div>
   );

@@ -5,45 +5,45 @@
       "title": "Super Product 1",
       "description": "Some text for this super product that all want to buy...",
       "infoText": [
-        "info one",
-        "info two",
-        "info three"
+        "Info one",
+        "Info two",
+        "Info three"
       ],
-      "amount": 700,
-      "discount": 50
+      "amount": 1200,
+      "discount": 150
     },
     {
       "id": 2,
       "title": "Super Product 34",
       "description": "Some text for this super product that all want to buy...",
       "infoText": [
-        "info one",
-        "info two",
-        "info three"
+        "Info one",
+        "Info two",
+        "Info three"
       ],
       "amount": 900,
-      "discount": 50
+      "discount": 100
     },
     {
       "id": 3,
       "title": "Super Product 39",
       "description": "Some text for this super product that all want to buy...",
       "infoText": [
-        "info one",
-        "info two",
-        "info three"
+        "Info one",
+        "Info two",
+        "Info three"
       ],
       "amount": 1050,
-      "discount": 50
+      "discount": 200
     },
     {
       "id": 4,
       "title": "Super Product 56",
       "description": "Some text for this super product that all want to buy...",
       "infoText": [
-        "info one",
-        "info two",
-        "info three"
+        "Info one",
+        "Info two",
+        "Info three"
       ],
       "amount": 500,
       "discount": 0
@@ -53,9 +53,9 @@
       "title": "Super Product 77",
       "description": "Some text for this super product that all want to buy...",
       "infoText": [
-        "info one",
-        "info two",
-        "info three"
+        "Info one",
+        "Info two",
+        "Info three"
       ],
       "amount": 1700,
       "discount": 0
@@ -65,9 +65,9 @@
       "title": "Super Product 99",
       "description": "Some text for this super product that all want to buy...",
       "infoText": [
-        "info one",
-        "info two",
-        "info three"
+        "Info one",
+        "Info two",
+        "Info three"
       ],
       "amount": 2000,
       "discount": 0
@@ -75,9 +75,14 @@
   ],
   "wishlist": [
     {
-      "id": 4,
-      "title": "Super Product 56",
-      "amount": 500
+      "id": 2,
+      "title": "Super Product 34",
+      "amount": 800
+    },
+    {
+      "id": 3,
+      "title": "Super Product 39",
+      "amount": 850
     }
   ]
 }
