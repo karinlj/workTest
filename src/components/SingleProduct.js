@@ -50,12 +50,10 @@ const SingleProduct = ({ product, addItem }) => {
                 ""
               )}
             </div>
-
             <footer className="btn_section">
               {" "}
               <button
                 className="add_btn"
-                //disabled={!product.enabled}
                 disabled={product.disabled}
                 onClick={() => addItem(product.id)}
               >

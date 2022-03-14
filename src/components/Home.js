@@ -106,7 +106,6 @@ const Home = () => {
       </header>
       {productsError && <div className="error">{productsError}</div>}
       {productsLoading && <div className="loading">Products loading...</div>}
-
       {products && <ProductList products={products} addItem={addItem} />}
 
       <section className="wishlist_section">
