@@ -1,7 +1,14 @@
 $sm-min: 576px;
 $md-min: 768px;
 $lg-min: 992px;
+$color_red: #db2130;
+$color_dark_grey: #111;
+$color_medium_grey: #999;
+$color_light_grey: #ccc;
 
+@import "./components/singleProduct";
+
+//General
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -10,159 +17,67 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
-}
 * {
   box-sizing: border-box;
 }
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
 .home {
   padding: 1rem;
-  color: #111;
+  color: $color_dark_grey;
   max-width: 1300px;
   width: 100%;
   margin: 0 auto;
   margin-bottom: 5rem;
-  ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+}
+.header {
+  text-align: center;
+  padding: 2rem 0;
+  h1 {
+    font-size: 2.5rem;
   }
-  .header {
-    text-align: center;
-    padding: 2rem 0;
-    h1 {
-      font-size: 2.5rem;
+}
+.loading,
+.error {
+  text-align: center;
+}
+.error {
+  color: $color_red;
+}
+//Productlist
+.product_list_section {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -1rem;
+  margin-left: -1rem;
+}
+//Wishlist
+.wishlist_section {
+  text-align: center;
+  h2 {
+    font-size: 2.2rem;
+    margin-bottom: 3rem;
+  }
+  li {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+  .wishlist_delete_item {
+    color: $color_red;
+    margin-left: 0.5rem;
+    font-size: 1rem;
+    border: none;
+    background: transparent;
+    &:hover {
+      filter: brightness(200%);
     }
   }
-  .loading,
-  .error {
-    text-align: center;
-  }
-  .error {
-    color: #d11a2a;
-  }
-  .productlist {
-    display: flex;
-    flex-wrap: wrap;
-    margin-right: -1rem;
-    margin-left: -1rem;
-    .product_card {
-      position: relative;
-      width: 100%;
-      flex: 0 0 100%;
-      max-width: 100%;
-      padding: 0 1rem;
-      margin-bottom: 1rem;
-      @media all and (min-width: $sm-min) {
-        flex: 0 0 50%;
-        max-width: 50%;
-      }
-      @media all and (min-width: $lg-min) {
-        flex: 0 0 33.333333%;
-        max-width: 33.333333%;
-      }
-      article {
-        margin-bottom: 2rem;
-        .image {
-          img {
-            max-width: 100%;
-            height: 100%;
-            object-fit: cover;
-            vertical-align: middle;
-          }
-        }
-        .card_content {
-          padding: 1.5rem 2.5rem 2.5rem 2.5rem;
-          border: 1px solid #999;
-          border-top: none;
-          h2 {
-            margin-top: 0;
-            font-size: 1.8rem;
-            white-space: nowrap;
-            @media all and (min-width: $sm-min) {
-              font-size: 1.5rem;
-            }
-            @media all and (min-width: $md-min) {
-              font-size: 1.8rem;
-            }
-          }
-          .card_content_inner {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            min-height: 350px;
-            .text {
-              .description {
-                padding: 0 1.5rem;
-              }
-              .see_info_toggle {
-                cursor: pointer;
-                .fas {
-                  margin-right: 1rem;
-                }
-              }
-              .info_list {
-                list-style: disc;
-                padding: 1rem 1.5rem;
-                opacity: 0;
-                transition: 0.2s all ease-in;
-                &.show {
-                  opacity: 1;
-                }
-              }
-            }
-            .price {
-              display: flex;
-              align-items: center;
-              justify-content: flex-start;
-              .amount {
-                margin: 0;
-                padding-right: 1rem;
-                &.discount {
-                  color: #e63342;
-                }
-              }
-              .original_amount {
-                margin: 0;
-                text-decoration: line-through;
-              }
-            }
-            .btn_section {
-              text-align: center;
-              .add_btn {
-                display: inline-block;
-                border: 1.5px solid #111;
-                background: #fff;
-                padding: 0.5rem 1rem;
-                font-size: 0.9rem;
-                font-weight: 600;
-                transition: 1s;
-                width: 8rem;
-                &:disabled {
-                  border-color: #ccc;
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-  .wishlist_section {
-    text-align: center;
-    h2 {
-      font-size: 2.2rem;
-      margin-bottom: 3rem;
-    }
-    .price {
-      font-size: 2.5rem;
-    }
-    .delete {
-      color: #d11a2a;
-      margin-left: 0.5rem;
-      font-size: 1rem;
-    }
+  .wishlist_total_price {
+    font-size: 2.5rem;
+    font-weight: bold;
   }
 }

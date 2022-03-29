@@ -10,6 +10,10 @@ To clone
 
 `git clone https://github.com/karinlj/workTest.git`
 
+Go to folder
+
+`cd columbus-test`
+
 To install
 
 `npm install`

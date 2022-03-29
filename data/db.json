@@ -75,14 +75,19 @@
   ],
   "wishlist": [
     {
-      "id": 2,
-      "title": "Super Product 34",
-      "amount": 800
+      "id": 4,
+      "title": "Super Product 56",
+      "amount": 500
     },
     {
-      "id": 3,
-      "title": "Super Product 39",
-      "amount": 850
+      "id": 6,
+      "title": "Super Product 99",
+      "amount": 2000
+    },
+    {
+      "id": 5,
+      "title": "Super Product 77",
+      "amount": 1700
     }
   ]
 }

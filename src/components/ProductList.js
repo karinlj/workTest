@@ -2,7 +2,7 @@ import SingleProduct from "./SingleProduct";
 
 const ProductList = ({ products, addItem }) => {
   return (
-    <ul className="productlist">
+    <section className="product_list_section">
       {products &&
         products.map((product) => {
           return (
@@ -13,7 +13,7 @@ const ProductList = ({ products, addItem }) => {
             />
           );
         })}
-    </ul>
+    </section>
   );
 };
 

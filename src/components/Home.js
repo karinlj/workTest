@@ -102,46 +102,50 @@ const Home = () => {
   }, [wishlist]);
 
   return (
-    <div className="home">
+    <section className="home">
       <header className="header">
         <h1>Super Product List</h1>
       </header>
-      {productsError && <div className="error">{productsError}</div>}
-      {productsLoading && <div className="loading">Products loading...</div>}
-      {products && <ProductList products={products} addItem={addItem} />}
+      <main>
+        {productsError && <div className="error">{productsError}</div>}
+        {productsLoading && <div className="loading">Products loading...</div>}
+        {products && <ProductList products={products} addItem={addItem} />}
+        <section className="wishlist_section">
+          <h2>Wishlist</h2>
+          {wishlistError && <div className="error">{wishlistError}</div>}
+          {wishlistLoading && (
+            <div className="loading">Wishlist loading...</div>
+          )}
 
-      <section className="wishlist_section">
-        <h2>Wishlist</h2>
-        {wishlistError && <div className="error">{wishlistError}</div>}
-        {wishlistLoading && <div className="loading">Wishlist loading...</div>}
-
-        <ul>
-          {wishlist &&
-            wishlist.map((item, index) => {
-              return (
-                <li key={index}>
-                  <h3>
+          <ul>
+            {wishlist &&
+              wishlist.map((item, index) => {
+                return (
+                  <li key={index}>
                     {" "}
                     {item.title}{" "}
-                    <span
-                      className="delete"
+                    <button
+                      aria-label="Delete item from Wishlist"
+                      title="delete"
+                      className="wishlist_delete_item"
                       onClick={() => {
                         handleDelete(item.id);
                       }}
                     >
-                      <i className="fas fa-trash-alt"></i>
-                    </span>
-                  </h3>
-                </li>
-              );
-            })}
-        </ul>
-        <h2 className="price">
-          Total Price:
-          {wishlist && <span> {totalAmount}</span>}
-        </h2>
-      </section>
-    </div>
+                      {" "}
+                      <i className="fas fa-trash-alt" aria-hidden="true"></i>
+                    </button>
+                  </li>
+                );
+              })}
+          </ul>
+          <p className="wishlist_total_price">
+            Total Price:
+            {wishlist && <span> {totalAmount}</span>}
+          </p>
+        </section>
+      </main>
+    </section>
   );
 };
 

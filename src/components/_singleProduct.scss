@@ -1,0 +1,99 @@
+//SingleProduct
+.product_card {
+  position: relative;
+  width: 100%;
+  flex: 0 0 100%;
+  max-width: 100%;
+  padding: 0 1rem;
+  margin-bottom: 3rem;
+  @media all and (min-width: $sm-min) {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+  @media all and (min-width: $lg-min) {
+    flex: 0 0 33.333333%;
+    max-width: 33.333333%;
+  }
+  img {
+    max-width: 100%;
+    object-fit: cover;
+    vertical-align: middle;
+  }
+  .card_content {
+    padding: 1.5rem 2.5rem 2.5rem 2.5rem;
+    border: 1px solid $color_medium_grey;
+    border-top: none;
+  }
+  h2 {
+    margin-top: 0;
+    font-size: 1.8rem;
+    white-space: nowrap;
+    @media all and (min-width: $sm-min) {
+      font-size: 1.5rem;
+    }
+    @media all and (min-width: $md-min) {
+      font-size: 1.8rem;
+    }
+  }
+  .card_content_inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 350px;
+
+    .card_description {
+      padding: 0 1.5rem;
+    }
+    .card_info_toggle {
+      cursor: pointer;
+      .fas {
+        margin-right: 1rem;
+      }
+    }
+    .card_info_list {
+      list-style: disc;
+      padding: 1rem 1.5rem;
+      opacity: 0;
+      transition: 0.2s all ease-in;
+      &.show {
+        opacity: 1;
+      }
+    }
+    .card_amount {
+      margin: 0;
+      padding-right: 1rem;
+      font-weight: bold;
+      font-size: 1.8rem;
+      display: inline;
+      &.discount {
+        color: $color_red;
+      }
+    }
+    .card_original_amount {
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin: 0;
+      text-decoration: line-through;
+      display: inline;
+    }
+    .card_btn_section {
+      text-align: center;
+      .add_btn {
+        display: inline-block;
+        border: 1.5px solid $color_dark_grey;
+        background: #fff;
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+        font-weight: 600;
+        transition: 1s;
+        width: 8rem;
+        &:disabled {
+          border-color: $color_light_grey;
+        }
+        &:hover {
+          border-color: $color_light_grey;
+        }
+      }
+    }
+  }
+}
